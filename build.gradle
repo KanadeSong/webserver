@@ -1,0 +1,53 @@
+group 'com.seater'
+version '1.0-SNAPSHOT'
+
+allprojects {
+    buildscript {
+        ext {
+            springBootVersion = '2.1.0.RELEASE'
+            kotlinVersion = '1.2.30'
+            dokka_version = '0.9.15'
+        }
+
+        dependencies{
+            classpath "org.jetbrains.dokka:dokka-gradle-plugin:${dokka_version}"
+            classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+            classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
+            classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
+        }
+
+        repositories {
+            maven {
+                credentials {
+                    username 'any'
+                    password 'sytech2018'
+                }
+                url 'https://maven.seater.cn/repository/maven-public/'
+            }
+            mavenCentral()
+        }
+        configurations.all {
+            resolutionStrategy {
+                force 'com.fasterxml.jackson.module:jackson-module-kotlin:2.9.2'
+            }
+        }
+    }
+    configurations.all {
+        resolutionStrategy {
+            force 'com.fasterxml.jackson.module:jackson-module-kotlin:2.9.2'
+        }
+    }
+
+    repositories {
+        maven {
+            credentials {
+                username 'any'
+                password 'sytech2018'
+            }
+            url 'https://maven.seater.cn/repository/maven-public/'
+        }
+        mavenCentral()
+    }
+}
+
+

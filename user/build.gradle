@@ -1,0 +1,38 @@
+apply plugin: 'java'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'org.springframework.boot'
+
+group 'com.seater'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+
+jar{
+    enabled = true
+}
+
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+    implementation('org.springframework.boot:spring-boot-starter-data-redis')
+    //implementation('org.springframework.boot:spring-boot-starter-security')
+    implementation('org.apache.shiro:shiro-spring-boot-web-starter:1.4.0')
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation('org.springframework.boot:spring-boot-starter-jdbc')
+    implementation('mysql:mysql-connector-java:8.0.13')
+    implementation('org.springframework.session:spring-session-data-redis')
+    implementation(project(':helpers'))
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.16.20'
+    // https://mvnrepository.com/artifact/com.alibaba/fastjson
+    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.47'
+    // https://github.com/looly/hutool/
+    compile group: 'cn.hutool', name: 'hutool-all', version: '4.5.2'
+    // https://help.aliyun.com/document_detail/66496.html?spm=a2c4g.11186623.2.13.70bb50a4HqoDHb
+    compile group: 'com.aliyun', name: 'aliyun-java-sdk-core', version: '4.0.3'
+//    compile group: 'com.aliyun', name: 'aliyun-java-sdk-ecs', version: '4.11.0'
+
+//    https://www.hutool.club/docs/#/extra/%E4%BA%8C%E7%BB%B4%E7%A0%81%E5%B7%A5%E5%85%B7-QrCodeUtil?id=%E7%94%B1%E6%9D%A5
+    compile group: 'com.google.zxing', name: 'core', version: '3.3.0'
+}

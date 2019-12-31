@@ -1,0 +1,67 @@
+apply plugin: 'java'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-spring'
+apply plugin: 'eclipse-wtp'
+
+group 'com.seater'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+configurations {
+    providedRuntime
+}
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+    implementation('org.springframework.boot:spring-boot-starter-data-redis')
+    implementation('org.springframework.boot:spring-boot-starter-quartz')
+    implementation('org.apache.shiro:shiro-spring-boot-web-starter:1.4.0')
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation('org.springframework.boot:spring-boot-starter-jdbc')
+    implementation('mysql:mysql-connector-java:8.0.13')
+    implementation('org.springframework.session:spring-session-data-redis')
+    implementation('org.springframework.integration:spring-integration-mqtt')
+    
+    compileOnly "org.springframework.boot:spring-boot-configuration-processor"
+    compile("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.2") {
+        force = true
+    }
+    compile('com.lh:userSingle:0.1.191-query-SNAPSHOT')
+    compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
+    compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
+    compile('com.googlecode.log4jdbc:log4jdbc:1.2')
+    implementation(project(':helpers'))
+    implementation(project(':user'))
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    // https://mvnrepository.com/artifact/org.apache.poi/poi
+    compile group: 'org.apache.poi', name: 'poi', version: '3.17'
+    // https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml
+    compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.17'
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.16.20'
+    // https://mvnrepository.com/artifact/com.alibaba/fastjson
+    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.47'
+    // https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils
+    compile group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.3'
+    //compile('com.googlecode.log4jdbc:log4jdbc:1.2')
+    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.6'
+    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpmime
+    compile group: 'org.apache.httpcomponents', name: 'httpmime', version: '4.5.6'
+    // https://mvnrepository.com/artifact/org.gavaghan/geodesy
+    compile group: 'org.gavaghan', name: 'geodesy', version: '1.1.3'
+    // https://mvnrepository.com/artifact/com.jcraft/jsch
+    compile group: 'com.jcraft', name: 'jsch', version: '0.1.54'
+
+}

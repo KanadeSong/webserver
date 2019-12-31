@@ -1,0 +1,42 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+# Operating System Files 
+
+*.DS_Store 
+Thumbs.db 
+*.sw? 
+.#* 
+*# 
+*~ 
+*.sublime-* 
+
+# Build Artifacts 
+
+.gradle/
+build/
+target/
+bin/
+dependency-reduced-pom.xml 
+
+# Eclipse Project Files 
+
+.classpath
+.project
+.settings/ 
+
+# IntelliJ IDEA Files 
+
+*.iml
+*.ipr 
+*.iws 
+.idea
+.idea/*
+/service
+gradle
+helpers/out/
+smartmining/out/
+smartmining/src/main/java/com/seater/smartmining/filter/
+user/out/
+user/src/main/resources/
+user/src/test/
+application.properties

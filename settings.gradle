@@ -1,0 +1,5 @@
+rootProject.name = 'com.seater'
+include 'user'
+include 'helpers'
+include 'smartmining'
+
